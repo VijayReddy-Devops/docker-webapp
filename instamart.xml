@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instamart Clone</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f7f7f7;
+}
+
+/* HEADER */
+.header{
+    background:white;
+    padding:15px 30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#ff6600;
+}
+.search{
+    width:45%;
+}
+.search input{
+    width:100%;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ddd;
+}
+.signin{
+    font-weight:bold;
+}
+
+/* BANNER */
+.banner{
+    background:linear-gradient(90deg,#7b2ff7,#f107a3);
+    color:white;
+    padding:25px;
+    margin:20px;
+    border-radius:12px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* CATEGORY */
+.categories{
+    display:flex;
+    gap:15px;
+    overflow:auto;
+    padding:0 20px 20px;
+}
+.cat{
+    background:white;
+    padding:12px 20px;
+    border-radius:8px;
+    white-space:nowrap;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* PRODUCTS */
+.section-title{
+    font-size:22px;
+    margin:20px;
+    font-weight:bold;
+}
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:15px;
+    padding:20px;
+}
+.card{
+    background:white;
+    border-radius:12px;
+    padding:15px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+.card img{
+    width:100%;
+    border-radius:10px;
+}
+.name{
+    font-weight:bold;
+    margin:10px 0;
+}
+.price{
+    color:green;
+    font-weight:bold;
+}
+.old{
+    text-decoration:line-through;
+    color:gray;
+    font-size:13px;
+}
+.btn{
+    margin-top:10px;
+    background:#0a66ff;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    border-radius:6px;
+    cursor:pointer;
+    width:100%;
+}
+.btn:hover{
+    background:#004ecc;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <div class="logo">Instamart</div>
+    <div class="search">
+        <input type="text" placeholder="Search for products...">
+    </div>
+    <div class="signin">Sign In</div>
+</div>
+
+<!-- BANNER -->
+<div class="banner">
+    Get groceries delivered in 10 minutes 🚀
+</div>
+
+<!-- CATEGORIES -->
+<div class="categories">
+    <div class="cat">Fruits</div>
+    <div class="cat">Vegetables</div>
+    <div class="cat">Snacks</div>
+    <div class="cat">Beverages</div>
+    <div class="cat">Dairy</div>
+    <div class="cat">Personal Care</div>
+    <div class="cat">Household</div>
+</div>
+
+<div class="section-title">Hot Deals 🔥</div>
+
+<!-- PRODUCTS -->
+<div class="products">
+
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707" alt="">
+    <div class="name">Kurkure Chips</div>
+    <div class="price">₹20 <span class="old">₹30</span></div>
+    <button class="btn">Add to Cart</button>
+</div>
+
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505" alt="">
+    <div class="name">Coca Cola</div>
+    <div class="price">₹45 <span class="old">₹60</span></div>
+    <button class="btn">Add to Cart</button>
+</div>
+
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a" alt="">
+    <div class="name">Banana</div>
+    <div class="price">₹35 <span class="old">₹50</span></div>
+    <button class="btn">Add to Cart</button>
+</div>
+
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1589307004392-b84f1f4e9d7e" alt="">
+    <div class="name">Milk Pack</div>
+    <div class="price">₹28 <span class="old">₹35</span></div>
+    <button class="btn">Add to Cart</button>
+</div>
+
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b" alt="">
+    <div class="name">Cookies</div>
+    <div class="price">₹55 <span class="old">₹80</span></div>
+    <button class="btn">Add to Cart</button>
+</div>
+
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce" alt="">
+    <div class="name">Fresh Apple</div>
+    <div class="price">₹120 <span class="old">₹150</span></div>
+    <button class="btn">Add to Cart</button>
+</div>
+
+</div>
+
+</body>
+</html>
