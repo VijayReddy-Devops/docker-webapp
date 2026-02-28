@@ -1,0 +1,27 @@
+---
+version: "3"
+services:
+  flm:
+    container_name: amazon
+    build: "./food_delivery"
+    ports:
+      - "1111:80"
+
+  devops:
+    container_name: swiggy
+    build: "./instamart"
+    ports:
+       - "2222:80"
+
+  vijay:
+    container_name: mynthra
+    build: "./genie"
+    ports:
+      - "3333:80"
+
+  online:
+    container_name: shopping
+    build: "./flipkart"
+    ports:
+      - "4444:80"
+
