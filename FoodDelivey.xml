@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Delivery App</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f8f8f8;
+}
+
+/* HEADER */
+.header{
+    background:#fc8019;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+.search input{
+    padding:10px;
+    width:350px;
+    border:none;
+    border-radius:6px;
+}
+
+/* HERO */
+.hero{
+    background:white;
+    text-align:center;
+    padding:30px;
+}
+.hero h1{
+    color:#fc8019;
+}
+.hero p{
+    color:#555;
+}
+
+/* CATEGORY */
+.categories{
+    display:flex;
+    gap:15px;
+    overflow:auto;
+    padding:20px;
+}
+.cat{
+    background:white;
+    padding:10px 20px;
+    border-radius:8px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    white-space:nowrap;
+}
+
+/* RESTAURANT CARDS */
+.section-title{
+    font-size:24px;
+    margin:20px;
+    font-weight:bold;
+}
+.restaurants{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:15px;
+    padding:20px;
+}
+.card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+.card img{
+    width:100%;
+    height:170px;
+    object-fit:cover;
+}
+.content{
+    padding:15px;
+}
+.name{
+    font-size:18px;
+    font-weight:bold;
+}
+.rating{
+    color:green;
+    font-weight:bold;
+}
+.btn{
+    margin-top:10px;
+    background:#fc8019;
+    color:white;
+    border:none;
+    padding:8px;
+    width:100%;
+    border-radius:6px;
+    cursor:pointer;
+}
+.btn:hover{
+    background:#e76d00;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <div class="logo">FoodExpress</div>
+    <div class="search">
+        <input type="text" placeholder="Search food or restaurants">
+    </div>
+    <div>Login</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <h1>Delicious Food Delivered Fast 🍕</h1>
+    <p>Order from top restaurants near you</p>
+</div>
+
+<!-- CATEGORIES -->
+<div class="categories">
+    <div class="cat">Pizza</div>
+    <div class="cat">Biryani</div>
+    <div class="cat">Burgers</div>
+    <div class="cat">South Indian</div>
+    <div class="cat">Chinese</div>
+    <div class="cat">Ice Cream</div>
+</div>
+
+<div class="section-title">Top Restaurants 🔥</div>
+
+<!-- RESTAURANTS -->
+<div class="restaurants">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1513104890138-7c749659a591">
+<div class="content">
+<div class="name">Pizza Hub</div>
+<div class="rating">⭐ 4.5</div>
+<button class="btn">Order Now</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1563379091339-03246963d96c">
+<div class="content">
+<div class="name">Biryani Palace</div>
+<div class="rating">⭐ 4.6</div>
+<button class="btn">Order Now</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+<div class="content">
+<div class="name">Burger Point</div>
+<div class="rating">⭐ 4.4</div>
+<button class="btn">Order Now</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1604909052743-94e838986d24">
+<div class="content">
+<div class="name">South Meals</div>
+<div class="rating">⭐ 4.7</div>
+<button class="btn">Order Now</button>
+</div>
+</div>
+
+</div>
+
+</body>
+</html>
