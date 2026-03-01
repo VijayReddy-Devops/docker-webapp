@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>WhatsApp Pro Clone</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+body{background:#0b141a;height:100vh;overflow:hidden;}
+
+/* MAIN */
+.container{
+display:flex;
+height:100vh;
+}
+
+/* LEFT PANEL */
+.sidebar{
+width:30%;
+background:#111b21;
+display:flex;
+flex-direction:column;
+color:white;
+}
+
+/* PROFILE TOP */
+.profile{
+background:#202c33;
+padding:10px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+.profile img{
+width:40px;height:40px;border-radius:50%;
+}
+.icons span{margin-left:12px;cursor:pointer}
+
+/* SEARCH */
+.search{
+padding:10px;
+}
+.search input{
+width:100%;
+padding:10px;
+border:none;
+border-radius:8px;
+background:#202c33;
+color:white;
+}
+
+/* CHAT LIST */
+.chat-list{flex:1;overflow:auto;}
+.chat{
+display:flex;
+padding:12px;
+cursor:pointer;
+border-bottom:1px solid #233138;
+transition:.2s;
+}
+.chat:hover{background:#2a3942;}
+
+.chat img{
+width:45px;height:45px;border-radius:50%;
+margin-right:10px;
+}
+.chat-info{flex:1;}
+.chat-name{font-weight:bold;}
+.last{font-size:13px;color:#aaa}
+.unread{
+background:#00a884;
+padding:4px 8px;
+border-radius:20px;
+font-size:12px;
+}
+
+/* RIGHT PANEL */
+.chat-area{
+flex:1;
+display:flex;
+flex-direction:column;
+background:#0b141a;
+}
+
+/* CHAT HEADER */
+.chat-header{
+background:#202c33;
+padding:10px;
+display:flex;
+align-items:center;
+color:white;
+}
+.chat-header img{
+width:40px;height:40px;border-radius:50%;
+margin-right:10px;
+}
+.status{font-size:12px;color:#aaa}
+
+/* MESSAGES */
+.messages{
+flex:1;
+padding:20px;
+overflow:auto;
+background:url('https://i.imgur.com/3aX9G4M.png');
+}
+.msg{
+max-width:320px;
+padding:10px;
+border-radius:8px;
+margin-bottom:10px;
+position:relative;
+animation:fade .2s;
+}
+.left{background:#202c33;color:white;}
+.right{
+background:#005c4b;
+color:white;
+margin-left:auto;
+}
+.time{
+font-size:10px;
+margin-top:5px;
+color:#ccc;
+text-align:right;
+}
+@keyframes fade{
+from{opacity:0;transform:translateY(10px);}
+to{opacity:1;}
+}
+
+/* INPUT AREA */
+.input-box{
+background:#202c33;
+padding:10px;
+display:flex;
+align-items:center;
+}
+.input-box input{
+flex:1;
+padding:10px;
+border:none;
+border-radius:8px;
+background:#2a3942;
+color:white;
+}
+.btn{
+margin-left:10px;
+background:#00a884;
+border:none;
+padding:10px 18px;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+.btn:hover{background:#00c896}
+
+.typing{
+font-size:12px;
+color:#00a884;
+padding:5px 15px;
+display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- LEFT -->
+<div class="sidebar">
+
+<div class="profile">
+<img src="https://i.pravatar.cc/100?img=12">
+<div class="icons">
+<span>💬</span>
+<span>📞</span>
+<span>⋮</span>
+</div>
+</div>
+
+<div class="search">
+<input id="search" placeholder="Search chats..." onkeyup="filterChats()">
+</div>
+
+<div class="chat-list" id="chatList">
+
+<div class="chat" onclick="openChat('Vijay','online')">
+<img src="https://i.pravatar.cc/100?img=5">
+<div class="chat-info">
+<div class="chat-name">Vijay</div>
+<div class="last">Docker deploy ayinda?</div>
+</div>
+<div class="unread">2</div>
+</div>
+
+<div class="chat" onclick="openChat('DevOps Group','typing...')">
+<img src="https://i.pravatar.cc/100?img=20">
+<div class="chat-info">
+<div class="chat-name">DevOps Group</div>
+<div class="last">Meeting at 7 PM</div>
+</div>
+</div>
+
+<div class="chat" onclick="openChat('AWS Team','last seen recently')">
+<img src="https://i.pravatar.cc/100?img=30">
+<div class="chat-info">
+<div class="chat-name">AWS Team</div>
+<div class="last">Instance running 👍</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+<div class="chat-area">
+
+<div class="chat-header">
+<img src="https://i.pravatar.cc/100?img=5">
+<div>
+<div id="chatName">Vijay</div>
+<div class="status" id="status">online</div>
+</div>
+</div>
+
+<div class="typing" id="typing">typing...</div>
+
+<div class="messages" id="messages">
+<div class="msg left">Hello Vijay 👋<div class="time">10:00</div></div>
+<div class="msg right">Hi bro 😎<div class="time">10:01</div></div>
+</div>
+
+<div class="input-box">
+<input id="input" placeholder="Type message..." onkeydown="enterSend(event)">
+<button class="btn" onclick="send()">Send</button>
+</div>
+
+</div>
+
+</div>
+
+<script>
+function send(){
+let input=document.getElementById("input");
+if(input.value.trim()=="") return;
+
+let msg=document.createElement("div");
+msg.className="msg right";
+
+let t=new Date();
+msg.innerHTML=input.value+"<div class='time'>"+t.getHours()+":"+t.getMinutes()+"</div>";
+
+document.getElementById("messages").appendChild(msg);
+input.value="";
+scrollBottom();
+
+typingEffect();
+}
+
+function scrollBottom(){
+let box=document.getElementById("messages");
+box.scrollTop=box.scrollHeight;
+}
+
+function enterSend(e){
+if(e.key==="Enter") send();
+}
+
+function openChat(name,status){
+document.getElementById("chatName").innerText=name;
+document.getElementById("status").innerText=status;
+}
+
+function typingEffect(){
+let t=document.getElementById("typing");
+t.style.display="block";
+setTimeout(()=>t.style.display="none",1500);
+}
+
+function filterChats(){
+let val=document.getElementById("search").value.toLowerCase();
+let chats=document.querySelectorAll(".chat");
+chats.forEach(c=>{
+c.style.display=c.innerText.toLowerCase().includes(val) ? "flex":"none";
+});
+}
+</script>
+
+</body>
+</html>

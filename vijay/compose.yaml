@@ -1,0 +1,32 @@
+---
+version: "3"
+services:
+  cloud:
+    container_name: abc
+    build: "./amazon"
+    ports:
+      - "8080:80"
+
+  course:
+    container_name: instance
+    build: "./netflix"
+    ports:
+      - "8081:80"
+
+  gcp:
+    container_name: home
+    build: "./whatsapp"
+    ports:
+      - "8082:80"
+
+  git:
+    container_name: cont-1
+    build: "./mynthra"
+    ports:
+      - "8083:80"
+
+  ai:
+    container_name: cont-2
+    build: "./facebook"
+    ports:
+      - "8084:80"

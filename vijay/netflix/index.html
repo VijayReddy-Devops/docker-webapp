@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Netflix Advanced Clone</title>
+
+<style>
+
+/* ===== GLOBAL ===== */
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#000;
+color:white;
+overflow-x:hidden;
+}
+
+a{text-decoration:none;color:white}
+
+/* ===== NAVBAR ===== */
+.nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 50px;
+background:linear-gradient(to bottom,rgba(0,0,0,0.8),transparent);
+z-index:100;
+}
+.logo{
+color:red;
+font-size:40px;
+font-weight:bold;
+}
+.nav-right button{
+background:red;
+border:none;
+padding:8px 15px;
+color:white;
+border-radius:5px;
+}
+
+/* ===== HERO ===== */
+.hero{
+height:90vh;
+background:url('https://images.unsplash.com/photo-1594908900066-3f47337549d8') center/cover;
+display:flex;
+flex-direction:column;
+justify-content:center;
+padding-left:60px;
+}
+.hero h1{
+font-size:70px;
+margin-bottom:10px;
+}
+.hero p{
+width:500px;
+line-height:1.6;
+}
+.hero-buttons button{
+margin-right:10px;
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:5px;
+}
+.play{background:white;color:black;}
+.info{background:gray;color:white;}
+
+/* ===== ROWS ===== */
+.row{
+margin-top:30px;
+padding-left:20px;
+}
+.row h2{
+margin-bottom:10px;
+}
+.row-posters{
+display:flex;
+overflow-x:auto;
+gap:10px;
+padding-bottom:10px;
+}
+.row-posters img{
+height:180px;
+border-radius:5px;
+transition:0.3s;
+cursor:pointer;
+}
+.row-posters img:hover{
+transform:scale(1.15);
+}
+
+/* ===== MODAL ===== */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.85);
+justify-content:center;
+align-items:center;
+z-index:200;
+}
+.modal-content{
+background:#111;
+padding:30px;
+border-radius:10px;
+width:60%;
+}
+.close{
+float:right;
+cursor:pointer;
+font-size:25px;
+}
+
+/* ===== FOOTER ===== */
+.footer{
+margin-top:50px;
+padding:40px;
+text-align:center;
+color:gray;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="nav">
+<div class="logo">NETFLIX</div>
+<div class="nav-right">
+<button>Sign In</button>
+</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+<h1>Unlimited movies, TV shows</h1>
+<p>
+Watch anywhere. Cancel anytime. Experience cinema with Netflix style UI clone.
+</p>
+
+<div class="hero-buttons">
+<button class="play">▶ Play</button>
+<button class="info">ℹ More Info</button>
+</div>
+</div>
+
+<!-- ROW 1 -->
+<div class="row">
+<h2>Trending Now</h2>
+<div class="row-posters">
+<img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba" onclick="openModal()">
+<img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b" onclick="openModal()">
+<img src="https://images.unsplash.com/photo-1505685296765-3a2736de412f" onclick="openModal()">
+<img src="https://images.unsplash.com/photo-1517602302552-471fe67acf66" onclick="openModal()">
+<img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae" onclick="openModal()">
+</div>
+</div>
+
+<!-- ROW 2 -->
+<div class="row">
+<h2>Top Rated</h2>
+<div class="row-posters">
+<img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4" onclick="openModal()">
+<img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4" onclick="openModal()">
+<img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1" onclick="openModal()">
+<img src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc" onclick="openModal()">
+<img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26" onclick="openModal()">
+</div>
+</div>
+
+<!-- ROW 3 -->
+<div class="row">
+<h2>Action Movies</h2>
+<div class="row-posters">
+<img src="https://images.unsplash.com/photo-1543536448-d209d2d13a1c" onclick="openModal()">
+<img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba" onclick="openModal()">
+<img src="https://images.unsplash.com/photo-1517602302552-471fe67acf66" onclick="openModal()">
+<img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae" onclick="openModal()">
+</div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">✖</span>
+<h2>Movie Title</h2>
+<p>
+This is a Netflix-style popup modal. You can add trailer, description,
+ratings, cast info etc here.
+</p>
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+Netflix Clone — Built by Vijay (DevOps Project)
+</div>
+
+<script>
+
+function openModal(){
+document.getElementById("modal").style.display="flex";
+}
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+
+</script>
+
+</body>
+</html>

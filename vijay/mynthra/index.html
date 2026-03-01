@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Myntra Advanced Clone</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#fff;
+}
+
+/* ===== HEADER ===== */
+.header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 30px;
+box-shadow:0 2px 8px rgba(0,0,0,.1);
+position:sticky;
+top:0;
+background:#fff;
+z-index:999;
+}
+.logo{
+font-size:34px;
+font-weight:bold;
+color:#ff3f6c;
+letter-spacing:1px;
+}
+.nav{
+display:flex;
+gap:25px;
+font-weight:bold;
+}
+.nav div{cursor:pointer;}
+.nav div:hover{color:#ff3f6c;}
+
+.search{
+flex:1;
+margin:0 30px;
+}
+.search input{
+width:100%;
+padding:10px;
+border:1px solid #ddd;
+border-radius:6px;
+}
+
+.icons{
+display:flex;
+gap:20px;
+font-size:14px;
+}
+
+/* ===== TOP BANNER ===== */
+.hero{
+height:350px;
+background:url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab')
+center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:45px;
+font-weight:bold;
+}
+
+/* ===== DEAL STRIP ===== */
+.deals{
+display:flex;
+overflow:auto;
+gap:10px;
+padding:20px;
+background:#fafafa;
+}
+.deal-card{
+min-width:220px;
+background:white;
+padding:15px;
+border-radius:10px;
+box-shadow:0 2px 5px rgba(0,0,0,.08);
+text-align:center;
+font-weight:bold;
+}
+
+/* ===== SECTION TITLE ===== */
+.title{
+font-size:28px;
+font-weight:bold;
+padding:25px;
+color:#333;
+}
+
+/* ===== PRODUCT GRID ===== */
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+gap:20px;
+padding:0 25px 30px;
+}
+
+.card{
+border:1px solid #eee;
+border-radius:8px;
+overflow:hidden;
+transition:.3s;
+background:white;
+position:relative;
+}
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.badge{
+position:absolute;
+top:10px;
+left:10px;
+background:#ff3f6c;
+color:white;
+padding:4px 8px;
+font-size:12px;
+border-radius:4px;
+}
+
+.card img{
+width:100%;
+height:260px;
+object-fit:cover;
+}
+
+.info{
+padding:12px;
+}
+.brand{
+font-weight:bold;
+font-size:16px;
+}
+.name{
+color:#555;
+margin:5px 0;
+font-size:14px;
+}
+.price{
+color:#ff3f6c;
+font-weight:bold;
+}
+.old{
+text-decoration:line-through;
+color:gray;
+font-size:13px;
+}
+.btn{
+margin-top:10px;
+width:100%;
+border:none;
+background:#ff3f6c;
+color:white;
+padding:9px;
+border-radius:6px;
+cursor:pointer;
+}
+.btn:hover{background:#e6315a;}
+
+/* ===== FOOTER ===== */
+.footer{
+background:#111;
+color:#eee;
+padding:40px;
+margin-top:30px;
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+gap:20px;
+}
+.footer h4{margin-bottom:10px;color:white;}
+
+@media(max-width:900px){
+.nav{display:none;}
+.search{margin:0 10px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+<div class="logo">MYNTRA</div>
+
+<div class="nav">
+<div>MEN</div>
+<div>WOMEN</div>
+<div>KIDS</div>
+<div>HOME</div>
+<div>BEAUTY</div>
+<div>GENZ</div>
+</div>
+
+<div class="search">
+<input placeholder="Search for products, brands and more">
+</div>
+
+<div class="icons">
+<div>Profile</div>
+<div>Wishlist</div>
+<div>Bag</div>
+</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+OMG DEALS 🔥
+</div>
+
+<!-- DEAL STRIP -->
+<div class="deals">
+<div class="deal-card">UNDER ₹499</div>
+<div class="deal-card">TOP BRANDS</div>
+<div class="deal-card">SUMMER SALE</div>
+<div class="deal-card">BIG FASHION DAYS</div>
+<div class="deal-card">NEW ARRIVALS</div>
+</div>
+
+<div class="title">Trending Now</div>
+
+<!-- PRODUCTS -->
+<div class="products" id="products">
+
+<!-- Repeat cards -->
+<div class="card">
+<div class="badge">40% OFF</div>
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
+<div class="info">
+<div class="brand">Roadster</div>
+<div class="name">Stylish Casual Shirt</div>
+<div class="price">₹999 <span class="old">₹1999</span></div>
+<button class="btn">❤ Add to Wishlist</button>
+</div>
+</div>
+
+<div class="card">
+<div class="badge">50% OFF</div>
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1">
+<div class="info">
+<div class="brand">HRX</div>
+<div class="name">Women Trendy Outfit</div>
+<div class="price">₹1499 <span class="old">₹2999</span></div>
+<button class="btn">❤ Add to Wishlist</button>
+</div>
+</div>
+
+<div class="card">
+<div class="badge">30% OFF</div>
+<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d">
+<div class="info">
+<div class="brand">Nike</div>
+<div class="name">Sports Collection</div>
+<div class="price">₹2499 <span class="old">₹3999</span></div>
+<button class="btn">❤ Add to Wishlist</button>
+</div>
+</div>
+
+<div class="card">
+<div class="badge">HOT</div>
+<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b">
+<div class="info">
+<div class="brand">Puma</div>
+<div class="name">Street Style Wear</div>
+<div class="price">₹1899 <span class="old">₹2899</span></div>
+<button class="btn">❤ Add to Wishlist</button>
+</div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+<div>
+<h4>ONLINE SHOPPING</h4>
+<p>Men</p><p>Women</p><p>Kids</p>
+</div>
+
+<div>
+<h4>CUSTOMER POLICIES</h4>
+<p>Contact Us</p><p>FAQ</p><p>Returns</p>
+</div>
+
+<div>
+<h4>EXPERIENCE MYNTRA APP</h4>
+<p>Android</p><p>iOS</p>
+</div>
+</div>
+
+</body>
+</html>

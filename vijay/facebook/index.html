@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Facebook Advanced Clone</title>
+
+<style>
+
+/* ===== GLOBAL ===== */
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#f0f2f5;
+}
+
+/* ===== HEADER ===== */
+.header{
+height:60px;
+background:white;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 20px;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+}
+
+.logo{
+font-size:40px;
+font-weight:bold;
+color:#1877f2;
+}
+
+.search{
+background:#f0f2f5;
+padding:8px 12px;
+border-radius:20px;
+width:250px;
+border:none;
+}
+
+.center-nav{
+display:flex;
+gap:30px;
+font-size:22px;
+}
+
+.nav-icon{
+padding:8px 15px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.nav-icon:hover{
+background:#f0f2f5;
+}
+
+.right-icons{
+display:flex;
+gap:10px;
+}
+
+.circle{
+background:#e4e6eb;
+width:38px;
+height:38px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+}
+
+/* ===== MAIN LAYOUT ===== */
+.main{
+display:flex;
+margin-top:70px;
+}
+
+/* ===== LEFT SIDEBAR ===== */
+.left{
+width:25%;
+padding:15px;
+position:fixed;
+height:100vh;
+overflow:auto;
+}
+
+.menu-item{
+padding:10px;
+border-radius:8px;
+cursor:pointer;
+margin-bottom:5px;
+font-weight:bold;
+}
+
+.menu-item:hover{
+background:#e4e6eb;
+}
+
+/* ===== CENTER FEED ===== */
+.feed{
+width:50%;
+margin:0 auto;
+padding:15px;
+}
+
+/* ===== STORIES ===== */
+.stories{
+display:flex;
+gap:10px;
+overflow:auto;
+}
+
+.story{
+min-width:120px;
+height:200px;
+background:white;
+border-radius:10px;
+display:flex;
+align-items:end;
+padding:10px;
+font-weight:bold;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* ===== CREATE POST ===== */
+.post-box{
+background:white;
+padding:15px;
+margin-top:15px;
+border-radius:10px;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.post-input{
+width:100%;
+padding:12px;
+border:none;
+background:#f0f2f5;
+border-radius:20px;
+}
+
+.post-actions{
+display:flex;
+justify-content:space-around;
+margin-top:10px;
+font-weight:bold;
+color:#65676b;
+}
+
+/* ===== POSTS ===== */
+.post{
+background:white;
+margin-top:15px;
+padding:15px;
+border-radius:10px;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.post-top{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.avatar{
+width:40px;
+height:40px;
+border-radius:50%;
+background:#1877f2;
+}
+
+.post-img{
+width:100%;
+margin-top:10px;
+border-radius:10px;
+}
+
+.post-actions2{
+display:flex;
+justify-content:space-around;
+margin-top:10px;
+padding-top:10px;
+border-top:1px solid #ddd;
+}
+
+.like-btn{
+cursor:pointer;
+color:#1877f2;
+font-weight:bold;
+}
+
+/* ===== RIGHT PANEL ===== */
+.right{
+width:25%;
+padding:15px;
+position:fixed;
+right:0;
+height:100vh;
+overflow:auto;
+}
+
+.contact{
+padding:8px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.contact:hover{
+background:#e4e6eb;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+
+<div style="display:flex;align-items:center;gap:10px;">
+<div class="logo">facebook</div>
+<input class="search" placeholder="Search Facebook">
+</div>
+
+<div class="center-nav">
+<div class="nav-icon">🏠</div>
+<div class="nav-icon">👥</div>
+<div class="nav-icon">🎥</div>
+<div class="nav-icon">🏪</div>
+</div>
+
+<div class="right-icons">
+<div class="circle">＋</div>
+<div class="circle">💬</div>
+<div class="circle">🔔</div>
+<div class="circle">🙂</div>
+</div>
+
+</div>
+
+<div class="main">
+
+<!-- LEFT -->
+<div class="left">
+<div class="menu-item">👤 Vijay Kumar</div>
+<div class="menu-item">👥 Friends</div>
+<div class="menu-item">💾 Saved</div>
+<div class="menu-item">🕒 Memories</div>
+<div class="menu-item">📺 Videos</div>
+<div class="menu-item">🛒 Marketplace</div>
+<div class="menu-item">📅 Events</div>
+<div class="menu-item">⚙ Settings</div>
+</div>
+
+<!-- CENTER -->
+<div class="feed">
+
+<!-- STORIES -->
+<div class="stories">
+<div class="story">Add Story</div>
+<div class="story">Story 1</div>
+<div class="story">Story 2</div>
+<div class="story">Story 3</div>
+</div>
+
+<!-- CREATE POST -->
+<div class="post-box">
+<input class="post-input" placeholder="What's on your mind, Vijay?">
+<div class="post-actions">
+<div>🎥 Live</div>
+<div>🖼 Photo</div>
+<div>😊 Feeling</div>
+</div>
+</div>
+
+<!-- POST 1 -->
+<div class="post">
+<div class="post-top">
+<div class="avatar"></div>
+<div>
+<b>Vijay Kumar</b><br>
+<small>Just now</small>
+</div>
+</div>
+
+<p>Successfully deployed multiple applications using Docker & AWS EC2 🚀</p>
+
+<img class="post-img" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+
+<div class="post-actions2">
+<div class="like-btn" onclick="like(this)">👍 Like</div>
+<div>💬 Comment</div>
+<div>↗ Share</div>
+</div>
+</div>
+
+<!-- POST 2 -->
+<div class="post">
+<div class="post-top">
+<div class="avatar"></div>
+<div>
+<b>DevOps Group</b><br>
+<small>2 hrs ago</small>
+</div>
+</div>
+
+<p>Docker + Nginx + EC2 discussion today 🔥</p>
+
+<div class="post-actions2">
+<div class="like-btn" onclick="like(this)">👍 Like</div>
+<div>💬 Comment</div>
+<div>↗ Share</div>
+</div>
+</div>
+
+</div>
+
+<!-- RIGHT -->
+<div class="right">
+<h3>Contacts</h3>
+<div class="contact">🟢 DevOps Team</div>
+<div class="contact">🟢 AWS Group</div>
+<div class="contact">🟢 Inchara</div>
+<div class="contact">🟢 Junior Friends</div>
+</div>
+
+</div>
+
+<script>
+function like(el){
+el.innerText="❤️ Liked";
+}
+</script>
+
+</body>
+</html>
